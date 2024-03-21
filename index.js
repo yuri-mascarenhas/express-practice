@@ -61,7 +61,9 @@ app.get("/collaborators/:position", (req, res) => {
  * @param {Object} res - The response object.
  */
 app.get("/supply", (req, res) => {
-  res.send([{ type: "Notebook", collaborator: 18 }]);
+  const { q } = req.query;
+  if (q === "notebook") res.send([{ type: "notebook", collaborator: 18 }]);
+  res.send(`No supply with the type "${q}" found`);
 });
 
 /**
