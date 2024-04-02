@@ -4,6 +4,7 @@
  */
 
 import express from "express";
+import data from "./mocks/collaborators.json" assert { type: "json" };
 
 const app = express();
 
@@ -28,10 +29,8 @@ app.get("/", (req, res) => {
  * @param {Object} res - The response object.
  */
 app.get("/collaborators", (req, res) => {
-  res.send([
-    { name: "John Doe", company_id: 233, position: "analyst" },
-    { name: "Gene Doe", company_id: 18, position: "director-assistant" },
-  ]);
+  console.log(`[Request] ${req.path}`);
+  res.send(data);
 });
 
 /**
